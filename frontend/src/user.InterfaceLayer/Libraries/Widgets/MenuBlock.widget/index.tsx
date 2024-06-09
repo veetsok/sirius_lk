@@ -14,7 +14,6 @@ import QuestionsIcon from "@/user.InterfaceLayer/Libraries/shared/icons/question
 import HeadsetIcon from "@/user.InterfaceLayer/Libraries/shared/icons/headset.svg?react";
 import ButtonAtom from "../../UI_KIT/Atoms/Button.Atom";
 import ButtonAtomEnum from "../../UI_KIT/Atoms/Button.Atom/enum";
-import TextAtom from "../../UI_KIT/Atoms/Text.Atom";
 
 interface MenuBlockProps {}
 
@@ -43,7 +42,11 @@ const MenuBlock: React.FC<MenuBlockProps> = () => {
             type={ButtonAtomEnum.enum_tabButton}
             key={index}
           >
-            <ImageAtom type={ImageEnum.enum_defaultSvg} icon={e.icon} />
+            <ImageAtom
+              className="w-[18px] h-[18px] flex items-center justify-center"
+              type={ImageEnum.enum_defaultSvg}
+              icon={e.icon}
+            />
             {e.title}
           </ButtonAtom>
         ))}

@@ -47,10 +47,10 @@ const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
           }}
           style={style}
           disabled={disabled}
-          className={`${className} bg-transparent inline-block cursor-pointer text-[16px] font-bold leading-[131%] uppercase py-[6px] ${
+          className={`${className} bg-transparent inline-block cursor-pointer text-[16px] font-bold py-[6px] ${
             isActive
-              ? "border-text_accent border-b-2 text-text_primary rounded-[0_30px_30px_0]"
-              : "border-border_primary text-text_secondary"
+              ? "text-text_secondary rounded-[0_30px_30px_0]"
+              : "text-text_primary [&>div>svg]:stroke-text_primary deep [&>svg]:max-w-full"
           }`}
         >
           {children}

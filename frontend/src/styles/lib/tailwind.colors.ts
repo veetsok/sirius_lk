@@ -3,7 +3,7 @@ const colorsTW = {
   bg_secondary: "#eef",
   bg_tertiary: "#323854",
 
-  text_primary: "#323854",
+  text_primary: "#434B74",
   text_secondary: "#fff",
   text_success: "#008aff",
   text_error: "#e84849",
