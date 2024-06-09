@@ -1,85 +1,34 @@
-import React, { useLayoutEffect, useMemo, useState } from "react";
+import React from "react";
+import ImageAtom from "../../Atoms/Image.Atom";
+import ImageEnum from "../../Atoms/Image.Atom/enum";
 import TextAtom from "../../Atoms/Text.Atom";
 import TextAtomEnum from "../../Atoms/Text.Atom/enum";
-import Image from "next/image";
 
-interface ImagesTeamBlockProps {}
+interface ReportBlockProps {
+  className?: string;
+  icon?: any;
+  title?: any;
+}
 
-const ImagesTeamBlock: React.FC<ImagesTeamBlockProps> = () => {
-  const images = useMemo(
-    () => [
-      "avatar_1",
-      "avatar_3",
-      "avatar_4",
-      "avatar_5",
-      "avatar_6",
-      "avatar_7",
-      "avatar_8",
-      "avatar_2",
-    ],
-    []
-  );
-
-  const imageWidth = 48; // Ширина каждого изображения
-  const imageMargin = -8; // Отступ между изображениями
-  const initialContainerWidth = 310; // Начальная ширина контейнера
-
-  const [containerWidth, setContainerWidth] = useState(initialContainerWidth);
-
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      setContainerWidth(
-        document.getElementById("info-block-container")?.clientWidth ||
-          initialContainerWidth
-      );
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, [initialContainerWidth]);
-
-  const maxImages = Math.floor(containerWidth / (imageWidth + imageMargin));
-  const visibleImages = useMemo(
-    () => images.slice(0, Math.min(maxImages, 7)),
-    [images, maxImages]
-  );
-
-  const remainingImagesCount = images.length - visibleImages.length;
+const ReportBlock: React.FC<ReportBlockProps> = (props) => {
+  const { className, icon, title } = props;
 
   return (
     <div
-      className="flex flex-wrap items-center"
-      id="info-block-container"
-      style={{ maxWidth: `${initialContainerWidth}px` }}
+      className={`${className} flex flex-col rounded-[20px] pt-4 pr-3 pb-3 pl-4 gap-[5px] max-w-[162px]`}
     >
-      {visibleImages.map((img, index) => (
-        <div
-          className="w-[48px] h-[48px] rounded-[360px] inline-flex"
-          key={index}
-          style={{
-            marginRight:
-              index < visibleImages.length - 1 ? `${imageMargin}px` : 0,
-          }}
-        >
-          <Image
-            src={`/images/${img}.png`}
-            alt={`team-member-${index}`}
-            width={48}
-            height={48}
-          />
-        </div>
-      ))}
-      {remainingImagesCount > 0 && (
-        <TextAtom
-          type={TextAtomEnum.enum_subtitle_1}
-          className="text-text_primary ml-2"
-        >
-          +{remainingImagesCount}
-        </TextAtom>
-      )}
+      <TextAtom type={TextAtomEnum.enum_h3} className="max-w-[100px]">
+        {title}
+      </TextAtom>
+      <div className="flex justify-end">
+        <ImageAtom
+          type={ImageEnum.enum_defaultSvg}
+          icon={icon}
+          className="py-[11px] px-[12px] rounded-[12px] w-[40px] h-[40px] bg-bg_white [&>div>svg]:w-[18px] [&>div>svg]:h-[20px] [&>div>svg]:stroke-bg_tertiary"
+        />
+      </div>
     </div>
   );
 };
 
-export default React.memo(ImagesTeamBlock);
+export default React.memo(ReportBlock);

@@ -32,7 +32,7 @@ const MenuBlock: React.FC<MenuBlockProps> = () => {
 
   return (
     <div
-      className={`${globalBgRadius} flex flex-col bg-bg_secondary pt-[44px] pb-[22px] px-5`}
+      className={`${globalBgRadius} flex flex-col bg-bg_secondary mt-6 pt-[44px] pb-[22px] px-5`}
     >
       <ImageAtom type={ImageEnum.enum_defaultSvg} icon={<LogoIcon />} />
       <div className="flex flex-col">

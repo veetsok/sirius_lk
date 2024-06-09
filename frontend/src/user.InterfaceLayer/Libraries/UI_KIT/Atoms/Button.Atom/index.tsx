@@ -3,6 +3,7 @@ import { IButtonAtomPropsDefault } from "./mock";
 import ButtonAtomEnum from "./enum";
 import { ButtonAtomProps } from "./type";
 import SkeletonAtom from "../Skeleton.Atom";
+import { globalBgRadius } from "@/user.InterfaceLayer/constants/styles/CommonStyles";
 
 const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
   const {
@@ -67,11 +68,7 @@ const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
           }}
           style={style}
           disabled={disabled}
-          className={`${className} inline-block cursor-pointer text-[14px] font-medium leading-[171%] text-text_tertiary ${
-            isActive
-              ? "border-text_accent border-b-2 text-text_primary"
-              : "border-border_primary text-text_secondary"
-          }`}
+          className={`${className} ${globalBgRadius} py-[13px] justify-center border-dashed	border-[1px] border-bg_tertiary text-bg_tertiary text-[16px] leading-[143%] text-center font-normal`}
         >
           {children}
         </button>

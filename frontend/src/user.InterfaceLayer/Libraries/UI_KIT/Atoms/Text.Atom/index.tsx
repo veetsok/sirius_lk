@@ -31,7 +31,7 @@ const TextAtom: React.FC<TextAtomProps> = (props) => {
     case TextAtomEnum.enum_h3:
       return (
         <h3
-          className={`${className} ${mobile.h3} ${textStyles} text-h3 font-regular`}
+          className={`${className} ${mobile.h3} ${textStyles} text-h3 font-normal`}
         >
           {children}
         </h3>

@@ -8,7 +8,7 @@ interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   return (
-    <header className={`shadow-custom `}>
+    <header className={`shadow-custom rounded-[0_0_20px_20px] py-3 pl-8`}>
       <Link href={"/"} className="max-w-[180px] sm:max-w-[135px]">
         <ImageAtom
           className="w-[180px] sm:w-[135px]"

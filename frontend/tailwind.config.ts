@@ -19,16 +19,16 @@ const config: Config = {
       container: {
         center: true,
         screens: {
-          xl: "1494px",
+          xl: "1390px",
         },
       },
       fontSize: {
-        h1: "96px",
-        h2: "60px",
-        h3: "48px",
-        h4: "34px",
-        h5: "24px",
-        h6: "20px",
+        h1: "32px",
+        h2: "24px",
+        h3: "20px",
+        h4: "16px",
+        h5: "12px",
+        h6: "10px",
       },
       boxShadow: {
         custom:
