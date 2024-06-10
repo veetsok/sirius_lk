@@ -46,39 +46,29 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
               return (
                 <div
                   key={rowIndex}
-                  className="border-b-[1px] last:border-0 border-border_primary flex items-center w-full py-[10px] mr-6"
+                  className="border-b-[1px] last:border-0 border-border_primary flex items-center justify-between py-[10px] mr-6"
                 >
-                  <div className="flex items-center gap-4 w-[75%]">
-                    <div className="w-[42px] flex flex-col gap-1 items-center">
-                      <TextAtom type={TextAtomEnum.enum_h1}>{day}</TextAtom>
-                      <TextAtom type={TextAtomEnum.enum_h6}>{month}</TextAtom>
-                    </div>
-                    <div className="flex gap-[15px]">
-                      <TextAtom
-                        type={TextAtomEnum.enum_h5}
-                        className="w-[27.5%]"
-                      >
-                        {row.title}
-                      </TextAtom>
-                      <TextAtom
-                        type={TextAtomEnum.enum_h5}
-                        className="w-[9.5%]"
-                      >
-                        {row.time}
-                      </TextAtom>
-                      <div className="flex items-center gap-1 ml-2 w-[14.5%]">
-                        <ImageAtom
-                          type={ImageEnum.enum_defaultSvg}
-                          className="w-3 h-3 [&>svg]:stroke-bg_gray"
-                          icon={<ProfileIcon />}
-                        />
-                        <TextAtom type={TextAtomEnum.enum_h5}>
-                          {row.teacher}
-                        </TextAtom>
-                      </div>
-                    </div>
+                  <div className="w-[42px] flex flex-col gap-1 items-center">
+                    <TextAtom type={TextAtomEnum.enum_h1}>{day}</TextAtom>
+                    <TextAtom type={TextAtomEnum.enum_h6}>{month}</TextAtom>
                   </div>
-                  <div className="flex justify-end w-[25%]">
+                  <TextAtom type={TextAtomEnum.enum_h5} className="w-[27.5%]">
+                    {row.title}
+                  </TextAtom>
+                  <TextAtom type={TextAtomEnum.enum_h5} className="w-[9.5%]">
+                    {row.time}
+                  </TextAtom>
+                  <div className="flex items-center gap-1 w-[21%]">
+                    <ImageAtom
+                      type={ImageEnum.enum_defaultSvg}
+                      className="w-3 h-3 [&>svg]:stroke-bg_gray"
+                      icon={<ProfileIcon />}
+                    />
+                    <TextAtom type={TextAtomEnum.enum_h5}>
+                      {row.teacher}
+                    </TextAtom>
+                  </div>
+                  <div className="flex justify-start w-[25%] gap-1">
                     <ButtonAtom
                       type={ButtonAtomEnum.enum_defaultButton}
                     ></ButtonAtom>
