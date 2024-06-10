@@ -10,6 +10,24 @@
   text-align: -webkit-right;
 }
 
+.thead2::-webkit-scrollbar {
+  width: 4px;
+  height: 100px;
+}
+
+/* Цвет фона скроллбара */
+.thead2::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+/* Цвет ползунка */
+.thead2::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  width: 4px;
+  border-radius: 10px;
+}
+
 :root {
   --bg-primary: #fdfdff;
   --bg-secondary: #eef;
@@ -36,7 +54,6 @@ body {
 input {
   padding: 0;
   margin: 0;
-  -webkit-text-fill-color: initial !important;
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {

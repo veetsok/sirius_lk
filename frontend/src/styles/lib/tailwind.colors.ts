@@ -6,6 +6,7 @@ const colorsTW = {
   bg_blue: "#d8ecff",
   bg_purple: "#E8CBFF",
   bg_yellow: "#fff1cb",
+  bg_gray: "#79747F",
 
   text_primary: "#434B74",
   text_secondary: "#fff",

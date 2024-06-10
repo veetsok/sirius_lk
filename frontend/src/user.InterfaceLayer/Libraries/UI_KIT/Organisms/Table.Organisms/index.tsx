@@ -7,22 +7,25 @@ import TableBlockEnum from "./enum";
 import ButtonAtom from "../../Atoms/Button.Atom";
 import ButtonAtomEnum from "../../Atoms/Button.Atom/enum";
 import { formatDate } from "./const";
+import ImageAtom from "../../Atoms/Image.Atom";
+import ImageEnum from "../../Atoms/Image.Atom/enum";
+import ProfileIcon from "@/user.InterfaceLayer/Libraries/shared/icons/profile.svg?react";
 
 const TableBlock: React.FC<TableBlockProps> = (props) => {
   const { title, tbody, type } = props;
 
   return (
     <div
-      className={`${globalBgRadius} flex flex-col h-fit bg-bg_white border-solid border-[1px] border-border_primary pt-7 px-6 pb-[30px]`}
+      className={`${globalBgRadius} flex flex-col h-fit bg-bg_white border-solid border-[1px] border-border_primary pt-7 pl-6 pb-[30px]`}
     >
       <TextAtom type={TextAtomEnum.enum_h3}>{title}</TextAtom>
-      {type === TableBlockEnum.enum_balanceTable && (
-        <div className="thead2 text-text_primary">
+      <div className="thead2 text-text_primary overflow-x-hidden overflow-y-auto	max-h-[198px]">
+        {type === TableBlockEnum.enum_balanceTable && (
           <table className="w-full table-fixed">
             {tbody?.map((row, rowIndex) => (
               <div
                 key={rowIndex}
-                className="border-b-[1px] last:border-0 border-border_primary flex items-center justify-between py-[10px]"
+                className="border-b-[1px] last:border-0 border-border_primary flex items-center justify-between py-[10px] mr-6"
               >
                 <TextAtom type={TextAtomEnum.enum_h4}>{row.title}</TextAtom>
                 <TextAtom
@@ -34,30 +37,48 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
               </div>
             ))}
           </table>
-        </div>
-      )}
-      {type === TableBlockEnum.enum_scheduleTable && (
-        <div className="thead2 text-text_primary">
+        )}
+
+        {type === TableBlockEnum.enum_scheduleTable && (
           <table className="w-full table-fixed">
             {tbody?.map((row, rowIndex) => {
               const { day, month } = formatDate(row.date);
               return (
                 <div
                   key={rowIndex}
-                  className="border-b-[1px] justify-between last:border-0 border-border_primary flex items-center"
+                  className="border-b-[1px] last:border-0 border-border_primary flex items-center w-full py-[10px] mr-6"
                 >
-                  <div className="w-[42px] flex flex-col gap-1">
-                    <TextAtom type={TextAtomEnum.enum_h1}>{day}</TextAtom>
-                    <TextAtom type={TextAtomEnum.enum_h6}>{month}</TextAtom>
+                  <div className="flex items-center gap-4 w-[75%]">
+                    <div className="w-[42px] flex flex-col gap-1 items-center">
+                      <TextAtom type={TextAtomEnum.enum_h1}>{day}</TextAtom>
+                      <TextAtom type={TextAtomEnum.enum_h6}>{month}</TextAtom>
+                    </div>
+                    <div className="flex gap-[15px]">
+                      <TextAtom
+                        type={TextAtomEnum.enum_h5}
+                        className="w-[27.5%]"
+                      >
+                        {row.title}
+                      </TextAtom>
+                      <TextAtom
+                        type={TextAtomEnum.enum_h5}
+                        className="w-[9.5%]"
+                      >
+                        {row.time}
+                      </TextAtom>
+                      <div className="flex items-center gap-1 ml-2 w-[14.5%]">
+                        <ImageAtom
+                          type={ImageEnum.enum_defaultSvg}
+                          className="w-3 h-3 [&>svg]:stroke-bg_gray"
+                          icon={<ProfileIcon />}
+                        />
+                        <TextAtom type={TextAtomEnum.enum_h5}>
+                          {row.teacher}
+                        </TextAtom>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex gap-[15px]">
-                    <TextAtom type={TextAtomEnum.enum_h5}>{row.title}</TextAtom>
-                    <TextAtom type={TextAtomEnum.enum_h5}>{row.time}</TextAtom>
-                    <TextAtom type={TextAtomEnum.enum_h5}>
-                      {row.teacher}
-                    </TextAtom>
-                  </div>
-                  <div className="flex justify-end">
+                  <div className="flex justify-end w-[25%]">
                     <ButtonAtom
                       type={ButtonAtomEnum.enum_defaultButton}
                     ></ButtonAtom>
@@ -69,8 +90,8 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
               );
             })}
           </table>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
