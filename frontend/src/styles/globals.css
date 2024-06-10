@@ -6,6 +6,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.last-child-right:last-child {
+  text-align: -webkit-right;
+}
+
 :root {
   --bg-primary: #fdfdff;
   --bg-secondary: #eef;
