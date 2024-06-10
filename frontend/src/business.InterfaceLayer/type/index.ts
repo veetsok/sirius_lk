@@ -2,6 +2,6 @@
 export interface TProducts {
   title: string;
   teacher: string;
-  time: Date;
-  date: Date;
+  time: string;
+  date: string;
 }
