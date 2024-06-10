@@ -1,3 +1,5 @@
-import { TContacts, TTeam } from "@/business.InterfaceLayer/type";
+import { TProducts } from "@/business.InterfaceLayer/type";
 
-export interface MainLayoutProps {}
+export interface MainLayoutProps {
+  lessons?: TProducts[];
+}

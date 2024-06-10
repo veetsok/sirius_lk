@@ -9,8 +9,11 @@ import ButtonAtom from "../../UI_KIT/Atoms/Button.Atom";
 import ReportBlockCeil from "@/user.InterfaceLayer/Libraries/UI_KIT/Cells/ImagesTeam.Cell";
 import SchooltaskIcon from "@/user.InterfaceLayer/Libraries/shared/icons/schooltask.svg?react";
 import TableBlockOrganisms from "@/user.InterfaceLayer/Libraries/UI_KIT/Organisms/Table.Organisms";
+import TableBlockEnum from "../../UI_KIT/Organisms/Table.Organisms/enum";
 
 const MainLayout: React.FC<MainLayoutProps> = (props) => {
+  const { lessons } = props;
+
   return (
     <div className="flex flex-col ml-8 gap-5">
       <div className="flex gap-5 mt-5">
@@ -65,10 +68,18 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
       </div>
       <div className="flex gap-5">
         <div className="flex w-[33%]">
-          <TableBlockOrganisms title="Баланс занятий" />
+          <TableBlockOrganisms
+            title="Баланс занятий"
+            tbody={lessons}
+            type={TableBlockEnum.enum_balanceTable}
+          />
         </div>
         <div className="flex w-[67%]">
-          <TableBlockOrganisms title="Ближайшие уроки" />
+          <TableBlockOrganisms
+            title="Ближайшие уроки"
+            tbody={lessons}
+            type={TableBlockEnum.enum_scheduleTable}
+          />
         </div>
       </div>
     </div>

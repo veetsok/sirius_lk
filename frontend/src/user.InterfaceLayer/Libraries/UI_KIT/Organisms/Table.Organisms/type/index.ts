@@ -1,4 +1,5 @@
 import { TProducts } from "@/business.InterfaceLayer/type";
+import TableBlockEnum from "../enum";
 
 export interface TableBlockProps {
   title?: string;
@@ -6,5 +7,5 @@ export interface TableBlockProps {
   subtitle?: string;
   thead?: string[];
   tbody?: TProducts[];
-  tbodyStyle?: (cell: string, cellIndex: number) => string;
+  type?: TableBlockEnum;
 }
