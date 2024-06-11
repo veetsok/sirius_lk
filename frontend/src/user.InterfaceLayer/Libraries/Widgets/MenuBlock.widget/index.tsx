@@ -9,20 +9,29 @@ import { menuElements } from "./const";
 
 interface MenuBlockProps {
   onSectionChange: (section: string) => void;
+  activeSection: string;
 }
 
-const MenuBlock: React.FC<MenuBlockProps> = ({ onSectionChange }) => {
+const MenuBlock: React.FC<MenuBlockProps> = ({
+  onSectionChange,
+  activeSection,
+}) => {
   return (
     <div
-      className={`${globalBgRadius} flex flex-col bg-bg_secondary mt-6 pt-[44px] pb-[22px] px-5`}
+      className={`${globalBgRadius} flex flex-col bg-bg_secondary mt-6 pt-[44px] pb-[22px] pr-5`}
     >
-      <ImageAtom type={ImageEnum.enum_defaultSvg} icon={<LogoIcon />} />
+      <ImageAtom
+        type={ImageEnum.enum_defaultSvg}
+        icon={<LogoIcon />}
+        className="ml-5"
+      />
       <div className="flex flex-col">
         {menuElements.map((e, index) => (
           <ButtonAtom
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 pl-[44px]"
             type={ButtonAtomEnum.enum_tabButton}
             key={index}
+            isActive={activeSection === e.section}
             onClick={() => onSectionChange(e.section)}
           >
             <ImageAtom

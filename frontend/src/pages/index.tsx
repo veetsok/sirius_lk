@@ -30,7 +30,10 @@ export default function Home() {
   return (
     <main className={`${globalContainer} text-text_primary`}>
       <div className="flex">
-        <MenuBlock onSectionChange={handleSectionChange} />
+        <MenuBlock
+          activeSection={selectedSection}
+          onSectionChange={handleSectionChange}
+        />
         <div className="flex flex-col">
           <Header />
           {renderSection}
