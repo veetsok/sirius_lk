@@ -19,7 +19,7 @@ export default function Home() {
       case "main":
         return <MainLayout lessons={products} />;
       case "schedule":
-        return <ScheduleLayout />;
+        return <ScheduleLayout lessons={products} />;
       default:
         return <MainLayout lessons={products} />;
     }
@@ -34,7 +34,7 @@ export default function Home() {
           activeSection={selectedSection}
           onSectionChange={handleSectionChange}
         />
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
           <Header />
           {renderSection}
         </div>
