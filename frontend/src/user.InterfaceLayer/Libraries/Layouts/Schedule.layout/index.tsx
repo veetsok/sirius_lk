@@ -32,10 +32,13 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
 
   const weeks = useMemo(
     () =>
-      eachWeekOfInterval({
-        start: startOfCurrentMonth,
-        end: endOfMonth(startOfCurrentMonth),
-      }),
+      eachWeekOfInterval(
+        {
+          start: startOfCurrentMonth,
+          end: endOfMonth(startOfCurrentMonth),
+        },
+        { weekStartsOn: 1 } // Устанавливаем понедельник как начало недели
+      ),
     [startOfCurrentMonth]
   );
 
@@ -43,6 +46,7 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
     onSwipedLeft: () => setCurrentMonth(addMonths(currentMonth, 1)),
     onSwipedRight: () => setCurrentMonth(addMonths(currentMonth, -1)),
   });
+
   const getLessonsForDay = (day: Date) => {
     return lessons?.filter(
       (lesson) =>
@@ -79,22 +83,22 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
 
       <div {...handlers} className="weekly-calendar">
         <table className="w-[95%] h-full">
-          {daysOfWeek.map((day) => (
-            <th>
-              <TextAtom
-                key={day}
-                type={TextAtomEnum.enum_h4}
-                className="text-right"
-              >
-                {day}
-              </TextAtom>
-            </th>
-          ))}
+          <thead>
+            <tr>
+              {daysOfWeek.map((day) => (
+                <th key={day}>
+                  <TextAtom type={TextAtomEnum.enum_h4} className="text-right">
+                    {day}
+                  </TextAtom>
+                </th>
+              ))}
+            </tr>
+          </thead>
           <tbody className="h-full">
-            {weeks.map((day, rowIndex) => (
+            {weeks.map((weekStart, rowIndex) => (
               <tr key={rowIndex}>
                 {daysOfWeek.map((_, dayIndex) => {
-                  const currentDate = addDays(day, dayIndex);
+                  const currentDate = addDays(weekStart, dayIndex);
                   return (
                     <td
                       key={currentDate.toISOString()}
@@ -112,7 +116,7 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
                           className="flex flex-col relative bg-[#BBE7B9] h-[34px] p-1 text-left rounded-[2px] gap-1 overflow-hidden border-[0.5px] border-solid border-[#bbe7b9]"
                         >
                           <TextAtom type={TextAtomEnum.enum_h6}>
-                            {lesson.date}
+                            {lesson.time}
                           </TextAtom>
                           <TextAtom type={TextAtomEnum.enum_h6}>
                             {lesson.title}
