@@ -36,7 +36,7 @@ export default function Home() {
         />
         <div className="flex flex-col w-full">
           <Header />
-          {renderSection}
+          <div className="ml-8 mt-5">{renderSection}</div>
         </div>
       </div>
     </main>

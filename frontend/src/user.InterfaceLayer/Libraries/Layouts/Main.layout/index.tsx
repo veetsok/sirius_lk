@@ -15,8 +15,8 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
   const { lessons } = props;
 
   return (
-    <div className="flex flex-col ml-8 gap-5">
-      <div className="flex gap-5 mt-5">
+    <div className="flex flex-col gap-5">
+      <div className="flex gap-5">
         <div
           className={`${globalBgRadius} pl-[40px] pr-[164px] py-[56px] relative bg-border_primary overflow-hidden`}
         >

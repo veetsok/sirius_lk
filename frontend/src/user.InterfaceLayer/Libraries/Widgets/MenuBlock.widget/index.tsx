@@ -18,7 +18,7 @@ const MenuBlock: React.FC<MenuBlockProps> = ({
 }) => {
   return (
     <div
-      className={`${globalBgRadius} flex flex-col bg-bg_secondary mt-6 pt-[44px] pb-[22px] pr-5`}
+      className={`${globalBgRadius} flex flex-col bg-bg_secondary mt-6 pt-[44px] pb-[22px] pr-5 gap-10`}
     >
       <ImageAtom
         type={ImageEnum.enum_defaultSvg}
