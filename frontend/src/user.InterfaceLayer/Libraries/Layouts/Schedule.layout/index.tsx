@@ -55,6 +55,23 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
     );
   };
 
+  const getScheduleStyle = (id: number) => {
+    switch (id) {
+      case 1:
+        return { background: "bg_accent", border: "border_tertiary" };
+      case 2:
+        return { background: "bg_secondary", border: "border_third" };
+      case 3:
+        return { background: "bg_main", border: "border_sec" };
+      case 4:
+        return { background: "bg_yellow", border: "border_access" };
+      case 5:
+        return { background: "bg_blue", border: "border_secondary" };
+      default:
+        return { background: "bg_purple", border: "border_tertiary" };
+    }
+  };
+
   return (
     <>
       <div className="w-fit flex gap-8 items-center">
@@ -113,7 +130,11 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
                       {getLessonsForDay(currentDate)?.map((lesson, index) => (
                         <div
                           key={index}
-                          className="flex flex-col relative bg-[#BBE7B9] h-[34px] p-1 text-left rounded-[2px] gap-1 overflow-hidden border-[0.5px] border-solid border-[#bbe7b9]"
+                          className={`flex flex-col relative bg-${
+                            getScheduleStyle(lesson.id).background
+                          } border-${
+                            getScheduleStyle(lesson.id).border
+                          } h-[34px] p-1 text-left rounded-[2px] gap-1 overflow-hidden border-[0.5px] border-solid`}
                         >
                           <TextAtom type={TextAtomEnum.enum_h6}>
                             {lesson.time}
