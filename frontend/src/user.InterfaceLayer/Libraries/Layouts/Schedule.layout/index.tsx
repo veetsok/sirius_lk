@@ -15,8 +15,12 @@ import TextAtomEnum from "../../UI_KIT/Atoms/Text.Atom/enum";
 import ImageAtom from "../../UI_KIT/Atoms/Image.Atom";
 import ImageEnum from "../../UI_KIT/Atoms/Image.Atom/enum";
 import ArrowIcon from "@/user.InterfaceLayer/Libraries/shared/icons/arrow.svg?react";
+import QuestionIcon from "@/user.InterfaceLayer/Libraries/shared/icons/question.svg?react";
 import PaymentIcon from "@/user.InterfaceLayer/Libraries/shared/icons/payment.svg?react";
 import { TProducts } from "@/business.InterfaceLayer/type";
+import ButtonAtom from "../../UI_KIT/Atoms/Button.Atom";
+import ButtonAtomEnum from "../../UI_KIT/Atoms/Button.Atom/enum";
+import SelectMolecule from "../../UI_KIT/Molecules/Select.Molecule";
 
 interface ScheduleLayoutProps {
   lessons?: TProducts[];
@@ -74,7 +78,19 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
 
   return (
     <>
-      <div className="w-fit flex gap-8 items-center">
+      <div className="flex justify-between items-center mb-[27px]">
+        <div className="w-[253px] h-9">
+          <SelectMolecule />
+        </div>
+        <ButtonAtom
+          className="w-[344px] bg-[#DECFFF] font-normal text-white text-[16px] !text-bg_tertiary"
+          type={ButtonAtomEnum.enum_defaultButton}
+        >
+          Изменить
+        </ButtonAtom>
+      </div>
+
+      <div className="w-fit flex gap-8 items-center mb-3">
         <div className="flex items-center gap-5">
           <ImageAtom
             onClick={() => setCurrentMonth(addMonths(currentMonth, -1))}
@@ -92,9 +108,19 @@ const ScheduleLayout: React.FC<ScheduleLayoutProps> = (props) => {
             icon={<ArrowIcon />}
           />
         </div>
-        <div>
-          <button onClick={() => setCurrentMonth(new Date())}>Сегодня</button>
-          {/* <QuestionsIcon isActive={false} className={icon} /> */}
+        <div className="flex items-center gap-5">
+          <ButtonAtom
+            type={ButtonAtomEnum.enum_defaultButton}
+            className="border-[1px] border-solid border-[#8d7fc7] bg-transparent font-normal"
+            onClick={() => setCurrentMonth(new Date())}
+          >
+            <TextAtom type={TextAtomEnum.enum_h5}>Сегодня</TextAtom>
+          </ButtonAtom>
+          <ImageAtom
+            type={ImageEnum.enum_defaultSvg}
+            className="w-6 h-6 cursor-pointer"
+            icon={<QuestionIcon />}
+          />
         </div>
       </div>
 
