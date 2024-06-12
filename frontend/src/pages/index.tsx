@@ -5,6 +5,7 @@ import MainLayout from "@/user.InterfaceLayer/Libraries/Layouts/Main.layout";
 import { useProducts } from "@/business.InterfaceLayer/useProducts";
 import ScheduleLayout from "@/user.InterfaceLayer/Libraries/Layouts/Schedule.layout";
 import { useCallback, useMemo, useState } from "react";
+import Spinner from "@/user.InterfaceLayer/Libraries/UI_KIT/Molecules/Spinner.Molecule";
 
 export default function Home() {
   const { products, isLoading } = useProducts();
@@ -25,7 +26,7 @@ export default function Home() {
     }
   }, [selectedSection, products]);
 
-  if (isLoading) return <div className="">Loading...</div>;
+  if (isLoading) return <Spinner />;
 
   return (
     <main className={`${globalContainer} text-text_primary`}>

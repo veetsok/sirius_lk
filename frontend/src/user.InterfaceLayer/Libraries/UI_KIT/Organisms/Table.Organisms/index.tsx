@@ -70,11 +70,13 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
                   </div>
                   <div className="flex justify-start w-[25%] gap-1">
                     <ButtonAtom
+                      className="border-[1px] border-solid border-[#8d7fc7] bg-transparent font-normal"
                       type={ButtonAtomEnum.enum_defaultButton}
-                    ></ButtonAtom>
+                    />
                     <ButtonAtom
+                      className="bg-[#8d7fc7] font-normal text-white"
                       type={ButtonAtomEnum.enum_defaultButton}
-                    ></ButtonAtom>
+                    />
                   </div>
                 </div>
               );
@@ -82,6 +84,10 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
           </table>
         )}
       </div>
+      <ButtonAtom
+        className="bg-[#DECFFF] font-normal text-white mt-9 mr-6 text-[16px] !text-bg_tertiary"
+        type={ButtonAtomEnum.enum_defaultButton}
+      />
     </div>
   );
 };

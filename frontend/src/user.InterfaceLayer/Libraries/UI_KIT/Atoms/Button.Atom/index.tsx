@@ -32,7 +32,7 @@ const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
           }}
           style={style}
           disabled={disabled}
-          className={`${className} hover:bg-bg_hover justify-center flex cursor-pointer text-[14px] font-semibold leading-[143%] uppercase text-text_primary bg-bg_accent py-[10px] px-4 rounded`}
+          className={`${className} justify-center flex cursor-pointer text-[14px] font-normal leading-[135%] py-2 px-[10px] rounded-[15px]`}
         >
           {children}
         </button>
